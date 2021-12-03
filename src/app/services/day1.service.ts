@@ -11,6 +11,9 @@ export class Day1Service {
         return Common.CountIncreases(nums).toString();
     }
 
-    
+    public day1Part2(input:string[]): string {
+        let nums = input.map((x) => parseInt(x));
+        return Common.CountIncreasesInThreeMeasurementWindow(nums).toString();
+    }
 
 }

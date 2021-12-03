@@ -21,6 +21,7 @@ export class AppComponent {
     this.inputReader.readInputIntoLines(2021, 1)
       .subscribe((data) => {
         this.day1Part1 = this.day1Service.day1Part1(data);            
+        this.day1Part2 = this.day1Service.day1Part2(data);            
  
  
       });
