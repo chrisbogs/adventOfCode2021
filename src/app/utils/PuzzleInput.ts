@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class PuzzleInput {
-    private puzzleInputUri: string = "http://localhost:8885/api/FileReader/";
+    private puzzleInputUri: string = environment.InputRetrievalUri + "/api/FileReader/";
 
     constructor(private http:HttpClient){}
     

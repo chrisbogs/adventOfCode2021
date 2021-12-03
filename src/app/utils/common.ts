@@ -1,3 +1,4 @@
+
 export abstract class Common 
 {         
     public static CountIncreases(nums:Array<number>): number
@@ -7,7 +8,7 @@ export abstract class Common
         }
         
         // Count the number of times that we increase when iterating though the given list of numbers.
-        let result:number = nums[0];
+        let result:number = 0;
         for(let i = 1; i < nums.length; i++){
             if (nums[i] > nums[i-1]){
                 result++;   

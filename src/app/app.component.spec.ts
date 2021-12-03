@@ -1,27 +1,26 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { Day1Service } from './services/day1.service';
+import { HttpClient, HttpHandler } from "@angular/common/http";
+import { Day1Service } from "./services/day1.service";
+import { PuzzleInput } from "./utils/PuzzleInput";
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      providers: [Day1Service]
-    }).compileComponents();
-  });
+describe('Day1Service', () => {
+  let service: Day1Service;
+  beforeEach(() => { service = new Day1Service() });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it(`first test`, () => {
+    expect(service.day1Part1(
+      ["199",
+      "200",
+      "208",
+      "210",
+      "200",
+      "207",
+      "240",
+      "269",
+      "260",
+      "263"
+    ])
+    ).toBe("7");
   });
-
-  it(`should have as title 'adventOfCode2021'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('advent Of Code 2021');
-  });
+  //actual: 1446
 
 });
