@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { Day1Service } from './services/day1.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +8,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [Day1Service]
     }).compileComponents();
   });
 
@@ -19,13 +21,7 @@ describe('AppComponent', () => {
   it(`should have as title 'adventOfCode2021'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('adventOfCode2021');
+    expect(app.title).toEqual('advent Of Code 2021');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('adventOfCode2021 app is running!');
-  });
 });
