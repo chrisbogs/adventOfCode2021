@@ -1,31 +1,20 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { Day1Service } from "./services/day1.service";
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
+describe('Day1Service', () => {
+  let service: Day1Service;
+  beforeEach(() => { service = new Day1Service() });
+
+  it(`day 1 part 1`, () => {
+    expect(service.day1Part1(
+      ["199", "200", "208", "210", "200", "207", "240", "269", "260", "263"
+    ])
+    ).toBe("7");
+  });
+  it(`day 1 part 2`, () => {
+    expect(service.day1Part2(
+      ["199", "200", "208", "210", "200", "207", "240", "269", "260", "263"
+    ])
+    ).toBe("5");
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'adventOfCode2021'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('adventOfCode2021');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('adventOfCode2021 app is running!');
-  });
 });
