@@ -27,7 +27,9 @@ export class Submarine{
     // 0, 0 is the surface of the water (entry point)
     // first value is horizontal position
     // second value is depth
-    public CurrentPosition = new Point(0,0);
+    private CurrentPosition = new Point(0,0);
+    private Aim:number = 0;
+    
     public get CurrentPositionHash() {
          return this.CurrentPosition.X * this.CurrentPosition.Y;
     }
@@ -58,6 +60,21 @@ export class Submarine{
     }
     
     public Move(commands:Command[]): void{
+        for(var x of commands){
+            if (x.Direction == Direction.FORWARD){
+                this.CurrentPosition.X += x.Amount;
+                this.CurrentPosition.Y += this.Aim * x.Amount;
+            }
+            else if (x.Direction == Direction.UP){
+                this.Aim -= x.Amount;
+            }
+            else if (x.Direction == Direction.DOWN){
+                this.Aim += x.Amount;   
+            }
+        }
+    }
+    
+    public MovePart1(commands:Command[]): void{
         for(var x of commands){
             if (x.Direction == Direction.FORWARD){
                 this.CurrentPosition.X += x.Amount;
