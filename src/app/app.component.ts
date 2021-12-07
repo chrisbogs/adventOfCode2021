@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Day1Service } from './services/day1.service';
 import { Day2Service } from './services/day2.service';
+import { Day3Service } from './services/day3.service';
 import { PuzzleInput } from './utils/PuzzleInput';
 
 @Component({
@@ -10,6 +11,7 @@ import { PuzzleInput } from './utils/PuzzleInput';
   providers: [
     Day1Service,
     Day2Service,
+    Day3Service,
     
     PuzzleInput]
 })
@@ -93,6 +95,7 @@ export class AppComponent {
   constructor(
     private day1Service: Day1Service,
     private day2Service: Day2Service,
+    private day3Service: Day3Service,
     private inputReader:PuzzleInput,
   ) 
   {  }
@@ -107,6 +110,12 @@ export class AppComponent {
       .subscribe((data) => {
         this.day2Part1 = this.day2Service.Part1(data);            
         this.day2Part2 = this.day2Service.Part2(data);
+      });
+
+      this.inputReader.readInputIntoLines(2021, 3)
+      .subscribe((data) => {
+        this.day3Part1 = this.day3Service.Part1(data);            
+        this.day3Part2 = this.day3Service.Part2(data);
       });
   }
 }

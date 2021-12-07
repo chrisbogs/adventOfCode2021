@@ -37,4 +37,9 @@ export abstract class Common
         
         return result;
     }         
+    public static flipBitString(bitString:string):string{
+        return bitString.split('').map(function (b) {
+            return (1 - parseInt(b, 2)).toString();
+            }).join('');
+    }
 }
