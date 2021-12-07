@@ -38,9 +38,7 @@ export class Diagnostic{
     private CalculateOxygenAndCo2Ratings(diagnosticReport:string[], binaryStringLength:number):void{
         let bitStrings = diagnosticReport.slice();
         this.oxygenGeneratorRating = this.FilterByBitCriteria(bitStrings, binaryStringLength, "1");
-        console.log('o' + this.oxygenGeneratorRating + ' should be 23');
         this.cO2ScrubberRating = this.FilterByBitCriteria(bitStrings, binaryStringLength, "0", true);
-        console.log('co' + this.cO2ScrubberRating + ' should be 10');
         
     }
     
@@ -48,15 +46,11 @@ export class Diagnostic{
     // bit criteria to the given list.
     private FilterByBitCriteria(bitStrings:string[], binaryStringLength:number, 
         tieBreaker:string, findLeastCommon:boolean=false):number{
-        console.log("bigstring: " + bitStrings);
         for(let currentPosition = 0; currentPosition < binaryStringLength; currentPosition++){
             let firstMostCommon = this.GetMostCommonBitString(bitStrings, currentPosition, tieBreaker, findLeastCommon);
-            console.log("most common " + currentPosition + "th pos " + firstMostCommon);
 
-            console.log("negated?" + firstMostCommon);
             // filter values to those that have this value in their nth position
             bitStrings = bitStrings.filter((x) => x.charAt(currentPosition) == firstMostCommon);
-            console.log("bigstring: " + bitStrings);
             if (bitStrings.length === 1){
                 return parseInt(bitStrings[0], 2);
             }

@@ -9,7 +9,6 @@ export class Day3Service {
     public Part1(input:string[]): string {
         let d = new Diagnostic()
         d.Read(input);
-        console.log(d.PowerConsumption);
         return d.PowerConsumption.toString();
     }
 
