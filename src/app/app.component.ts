@@ -5,6 +5,7 @@ import { Day3Service } from './services/day3.service';
 import { Day4Service } from './services/day4.service';
 import { Day5Service } from './services/day5.service';
 import { Day6Service } from './services/day6.service';
+import { Day7Service } from './services/day7.service';
 import { PuzzleInput } from './utils/PuzzleInput';
 
 @Component({
@@ -105,6 +106,7 @@ export class AppComponent {
     private d4: Day4Service,
     private d5: Day5Service,
     private d6: Day6Service,
+    private d7: Day7Service,
     private inputReader:PuzzleInput,
   ) {  }
 
@@ -139,6 +141,11 @@ export class AppComponent {
       .subscribe((data) => {
         this.day6Part1 = this.d6.Part1(data);            
         this.day6Part2 = this.d6.Part2(data);
+      });
+      this.inputReader.readInputIntoLines(2021, 7)
+      .subscribe((data) => {
+        this.day7Part1 = this.d7.Part1(data);            
+        this.day7Part2 = this.d7.Part2(data);
       });
   }
 }
