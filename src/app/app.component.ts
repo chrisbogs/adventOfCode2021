@@ -4,6 +4,7 @@ import { Day2Service } from './services/day2.service';
 import { Day3Service } from './services/day3.service';
 import { Day4Service } from './services/day4.service';
 import { Day5Service } from './services/day5.service';
+import { Day6Service } from './services/day6.service';
 import { PuzzleInput } from './utils/PuzzleInput';
 
 @Component({
@@ -16,6 +17,7 @@ import { PuzzleInput } from './utils/PuzzleInput';
     Day3Service,
     Day4Service,
     Day5Service,
+    Day6Service,
     
     PuzzleInput]
 })
@@ -97,41 +99,46 @@ export class AppComponent {
   day25Part2: string = "";
   
   constructor(
-    private day1Service: Day1Service,
-    private day2Service: Day2Service,
-    private day3Service: Day3Service,
-    private day4Service: Day4Service,
-    private day5Service: Day5Service,
+    private d1: Day1Service,
+    private d2: Day2Service,
+    private d3: Day3Service,
+    private d4: Day4Service,
+    private d5: Day5Service,
+    private d6: Day6Service,
     private inputReader:PuzzleInput,
-  ) 
-  {  }
+  ) {  }
 
   ngOnInit(){
     this.inputReader.readInputIntoLines(2021, 1)
       .subscribe((data) => {
-        this.day1Part1 = this.day1Service.Part1(data);            
-        this.day1Part2 = this.day1Service.Part2(data);            
+        this.day1Part1 = this.d1.Part1(data);            
+        this.day1Part2 = this.d1.Part2(data);            
       });
       this.inputReader.readInputIntoLines(2021, 2)
       .subscribe((data) => {
-        this.day2Part1 = this.day2Service.Part1(data);            
-        this.day2Part2 = this.day2Service.Part2(data);
+        this.day2Part1 = this.d2.Part1(data);            
+        this.day2Part2 = this.d2.Part2(data);
       });
 
       this.inputReader.readInputIntoLines(2021, 3)
       .subscribe((data) => {
-        this.day3Part1 = this.day3Service.Part1(data);            
-        this.day3Part2 = this.day3Service.Part2(data);
+        this.day3Part1 = this.d3.Part1(data);            
+        this.day3Part2 = this.d3.Part2(data);
       });
       this.inputReader.readInputIntoLines(2021, 4)
       .subscribe((data) => {
-        this.day4Part1 = this.day4Service.Part1(data);            
-        this.day4Part2 = this.day4Service.Part2(data);
+        this.day4Part1 = this.d4.Part1(data);            
+        this.day4Part2 = this.d4.Part2(data);
       });
       this.inputReader.readInputIntoLines(2021, 5)
       .subscribe((data) => {
-        this.day5Part1 = this.day5Service.Part1(data);            
-        this.day5Part2 = this.day5Service.Part2(data);
+        this.day5Part1 = this.d5.Part1(data);            
+        this.day5Part2 = this.d5.Part2(data);
+      });
+      this.inputReader.readInputIntoLines(2021, 6)
+      .subscribe((data) => {
+        this.day6Part1 = this.d6.Part1(data);            
+        this.day6Part2 = this.d6.Part2(data);
       });
   }
 }
