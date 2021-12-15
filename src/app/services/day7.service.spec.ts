@@ -12,10 +12,10 @@ describe('7', () => {
     expect(result).toBe("37");
   });
   
-//   it(`part 2`, () => {
-//     let result =  service.Part2(input, 256);  
-//     expect(result).toBe("26984457539");
-//  });
+  it(`part 2`, () => {
+    let result =  service.Part2(input);  
+    expect(result).toBe("168");
+ });
 });
 
 
