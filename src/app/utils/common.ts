@@ -45,6 +45,28 @@ export abstract class Common {
         if (n == 0) return 0;
         if (n == 1) return 1;
         if (n == 2) return 3;
-        return Math.floor(n * (n+1) / 2);
+        return Math.floor(n * (n + 1) / 2);
     }
+
+    //Finds the first character that does not appear in the other string.
+    public static FindFirstDiff(str1: string, str2: string): string {
+        let string1 = str1.split('');
+        let string2 = str2.split('');
+        let diff = string1.filter(x => !string2.includes(x));
+        if (diff.length == 0) {
+            diff = string2.filter(x => !string1.includes(x));
+        }
+        return diff.length > 0 ? diff[0] : "";
+    }
+    //Finds the characters that do not appear in the other string.
+    public static FindAllDiff(str1: string, str2: string): string[] {
+        let string1 = str1.split('');
+        let string2 = str2.split('');
+        let diff = string1.filter(x => !string2.includes(x));
+        if (diff.length == 0) {
+            diff = string2.filter(x => !string1.includes(x));
+        }
+        return diff;
+    }
+
 }
