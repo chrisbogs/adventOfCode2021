@@ -20,9 +20,8 @@ describe('Common tests', () => {
     it(`first diff`, () => {
         expect(Common.FindAllDiff("and", "ancd")).toEqual(["c"]);
         expect(Common.FindAllDiff("daf", "af")).toEqual(["d"]);
-        expect(Common.FindAllDiff("daf", "a")).toEqual(["d","f"]);
-        expect(Common.FindAllDiff("dacfg", "ac")).toEqual(["d","f","g"]);
-        expect(Common.FindAllDiff("dacfg", "")).toEqual(["d","a","c","f","g"]);
+        expect(Common.FindAllDiff("daf", "a")).toEqual(["d", "f"]);
+        expect(Common.FindAllDiff("dacfg", "ac")).toEqual(["d", "f", "g"]);
+        expect(Common.FindAllDiff("dacfg", "")).toEqual(["d", "a", "c", "f", "g"]);
     });
-
 });
